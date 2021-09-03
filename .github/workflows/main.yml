@@ -27,7 +27,7 @@ jobs:
           cat tmp.txt |sort -g |uniq -d >> tmp2.txt
           cat tmp2.txt |sort -g > blackip-list.txt
           rm -f blackip-emerging.txt blackip-ustc-edu.txt tmp*.txt
-          wc -l blackip-list.txt > num
+          wc -l blackip-list.txt |awk '{print $1}' > num
           for i in `cat blackip-list.txt`
           do
             tmp="${tmp}${i},"
